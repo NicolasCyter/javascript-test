@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head prefix="og: http://ogp.me/ns#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="object" property="og:type">
+<meta content="GitLab" property="og:site_name">
+<meta content="Jimmy/JS1-introduction.md · master · popschool-lens / cours-philippe" property="og:title">
+<meta content="Cours dispensés par Philippe Pary" property="og:description">
+<meta content="https://framagit.org/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="og:image">
+<meta content="https://framagit.org/popschool-lens/cours-philippe/blob/master/Jimmy/JS1-introduction.md" property="og:url">
+<meta content="summary" property="twitter:card">
+<meta content="Jimmy/JS1-introduction.md · master · popschool-lens / cours-philippe" property="twitter:title">
+<meta content="Cours dispensés par Philippe Pary" property="twitter:description">
+<meta content="https://framagit.org/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="twitter:image">
+
+<title>Jimmy/JS1-introduction.md · master · popschool-lens / cours-philippe · GitLab</title>
+<meta content="Cours dispensés par Philippe Pary" name="description">
+<link rel="shortcut icon" type="image/x-icon" href="https://framagit.org/assets/favicon-075eba76312e8421991a0c1f89a89ee81678bcde72319dd3e8047e2a47cd3a42.ico" id="favicon">
+<link rel="stylesheet" media="all" href="Jimmy_JS1-introduction.md%20%C2%B7%20master%20%C2%B7%20popschool-lens%20_%20cours-philippe%20%C2%B7%20GitLab_fichiers/application-d9089a3d5bd5ef77743a6e45f044e26ff5e435ff5c21d8b6.css">
+<link rel="stylesheet" media="print" href="Jimmy_JS1-introduction.md%20%C2%B7%20master%20%C2%B7%20popschool-lens%20_%20cours-philippe%20%C2%B7%20GitLab_fichiers/print-87b4ace0db1f79d91e4fe6e74435b66b71d70fee57ffbb72d0fade.css">
+
+
+<script type="text/javascript" async="" defer="defer" src="Jimmy_JS1-introduction.md%20%C2%B7%20master%20%C2%B7%20popschool-lens%20_%20cours-philippe%20%C2%B7%20GitLab_fichiers/piwik.js"></script><script>
+//<![CDATA[
+window.gon={};gon.api_version="v4";gon.default_avatar_url="https:\/\/framagit.org\/assets\/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png";gon.max_file_size=10;gon.asset_host=null;gon.relative_url_root="";gon.shortcuts_path="\/help\/shortcuts";gon.user_color_scheme="white";gon.katex_css_url="\/assets\/katex-e46cafe9c3fa73920a7c2c063ee8bb0613e0cf85fd96a3aea25f8419c4bfcfba.css";gon.katex_js_url="\/assets\/katex-04bcf56379fcda0ee7c7a63f71d0fc15ffd2e014d017cd9d51fd6554dfccf40a.js";gon.gitlab_url="https:\/\/framagit.org";gon.revision="254b489";gon.gitlab_logo="\/assets\/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png";
+//]]>
+</script>
+<script src="Jimmy_JS1-introduction.md%20%C2%B7%20master%20%C2%B7%20popschool-lens%20_%20cours-philippe%20%C2%B7%20GitLab_fichiers/runtime.js"></script>
+<script src="Jimmy_JS1-introduction.md%20%C2%B7%20master%20%C2%B7%20popschool-lens%20_%20cours-philippe%20%C2%B7%20GitLab_fichiers/common.js"></script>
+<script src="Jimmy_JS1-introduction.md%20%C2%B7%20master%20%C2%B7%20popschool-lens%20_%20cours-philippe%20%C2%B7%20GitLab_fichiers/locale.js"></script>
+<script src="Jimmy_JS1-introduction.md%20%C2%B7%20master%20%C2%B7%20popschool-lens%20_%20cours-philippe%20%C2%B7%20GitLab_fichiers/main.js"></script>
+
+
+
+<script src="Jimmy_JS1-introduction.md%20%C2%B7%20master%20%C2%B7%20popschool-lens%20_%20cours-philippe%20%C2%B7%20GitLab_fichiers/blob.js"></script>
+
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="ohTxsp6af+N2qJ6ErYhKLW0VkrkFk6adxsnfadSQKZ7qSICIdhzX6/EvbigNdkQqhsy4rBTZY/WxbcjaT7YHCg==">
+<meta content="origin-when-cross-origin" name="referrer">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+<meta content="#474D57" name="theme-color">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://framagit.org/assets/touch-icon-iphone-5a9cee0e8a51212e70b90c87c12f382c428870c0ff67d1eb034d884b78d2dae7.png">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://framagit.org/assets/touch-icon-ipad-a6eec6aeb9da138e507593b464fdac213047e49d3093fc30e90d9a995df83ba3.png" sizes="76x76">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://framagit.org/assets/touch-icon-iphone-retina-72e2aadf86513a56e050e7f0f2355deaa19cc17ed97bbe5147847f2748e5a3e3.png" sizes="120x120">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://framagit.org/assets/touch-icon-ipad-retina-8ebe416f5313483d9c1bc772b5bbe03ecad52a54eba443e5215a22caed2a16a2.png" sizes="152x152">
+<link color="rgb(226, 67, 41)" href="https://framagit.org/assets/logo-d36b5212042cebc89b96df4bf6ac24e43db316143e89926c0db839ff694d2de4.svg" rel="mask-icon">
+<meta content="/assets/msapplication-tile-1196ec67452f618d39cdd85e2e3a542f76574c071051ae7effbfde01710eb17d.png" name="msapplication-TileImage">
+<meta content="#30353E" name="msapplication-TileColor">
+
+
+<!-- Piwik -->
+<script>
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//stats.framasoft.org/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 29]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//stats.framasoft.org/piwik.php?idsite=29" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+
+<style type="text/css"></style></head>
+
+<body class="" data-group="" data-page="projects:blob:show" data-project="cours-philippe">
+
+
+<header class="navbar navbar-gitlab with-horizontal-nav">
+<div class="navbar-border" style="opacity: 1;"></div>
+<a class="sr-only gl-accessibility" href="#content-body" tabindex="1">Skip to content</a>
+<div class="container-fluid">
+<div class="header-content">
+<div class="dropdown global-dropdown">
+<button class="global-dropdown-toggle" data-toggle="dropdown" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i aria-hidden="true" data-hidden="true" class="fa fa-bars"></i>
+</button>
+<div class="dropdown-menu-nav global-dropdown-menu">
+<ul>
+<li class="home"><a title="Projects" class="dashboard-shortcuts-projects" href="https://framagit.org/explore"><div class="shortcut-mappings">
+<div class="key">
+<i aria-label="hidden" class="fa fa-arrow-up"></i>
+P
+</div>
+</div>
+<span>
+Projects
+</span>
+</a></li><li class=""><a title="Groups" class="dashboard-shortcuts-groups" href="https://framagit.org/explore/groups"><div class="shortcut-mappings">
+<div class="key">
+<i aria-label="hidden" class="fa fa-arrow-up"></i>
+G
+</div>
+</div>
+<span>
+Groups
+</span>
+</a></li><li class=""><a title="Snippets" class="dashboard-shortcuts-snippets" href="https://framagit.org/explore/snippets"><div class="shortcut-mappings">
+<div class="key">
+<i aria-label="hidden" class="fa fa-arrow-up"></i>
+S
+</div>
+</div>
+<span>
+Snippets
+</span>
+</a></li><li class="divider"></li>
+<li class=""><a title="Help" href="https://framagit.org/help"><span>
+Help
+</span>
+</a></li></ul>
+
+</div>
+</div>
+<div class="header-logo">
+<a class="home" title="Dashboard" id="logo" href="https://framagit.org/"><img src="Jimmy_JS1-introduction.md%20%C2%B7%20master%20%C2%B7%20popschool-lens%20_%20cours-philippe%20%C2%B7%20GitLab_fichiers/logo.png" alt="Logo">
+</a></div>
+<div class="title-container">
+<h1 class="title"><span class="group-title"><a class="group-path" href="https://framagit.org/popschool-lens">popschool-lens</a></span> / <a class="project-item-select-holder" href="https://framagit.org/popschool-lens/cours-philippe">cours-philippe</a></h1>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="hidden-sm hidden-xs">
+<div class="has-location-badge search search-form">
+<form class="navbar-form" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" value="✓" type="hidden"><div class="search-input-container">
+<div class="location-badge">This project</div>
+<div class="search-input-wrap">
+<div class="dropdown" data-url="/search/autocomplete">
+<input name="search" id="search" placeholder="Search" class="search-input dropdown-menu-toggle no-outline js-search-dashboard-options disabled" spellcheck="false" tabindex="1" autocomplete="off" data-toggle="dropdown" data-issues-path="https://framagit.org/dashboard/issues" data-mr-path="https://framagit.org/dashboard/merge_requests" aria-label="Search" type="search">
+<div class="dropdown-menu dropdown-select">
+<div class="dropdown-content"><ul>
+<li>
+<a class="is-focused dropdown-menu-empty-link">
+Loading...
+</a>
+</li>
+</ul>
+</div><div class="dropdown-loading"><i aria-hidden="true" data-hidden="true" class="fa fa-spinner fa-spin"></i></div>
+</div>
+<i class="search-icon"></i>
+<i class="clear-icon js-clear-input"></i>
+</div>
+</div>
+</div>
+<input name="group_id" id="group_id" class="js-search-group-options" type="hidden">
+<input name="project_id" id="search_project_id" value="11516" class="js-search-project-options" data-project-path="cours-philippe" data-name="cours-philippe" data-issues-path="/popschool-lens/cours-philippe/issues" data-mr-path="/popschool-lens/cours-philippe/merge_requests" type="hidden">
+<input name="search_code" id="search_code" value="true" type="hidden">
+<input name="repository_ref" id="repository_ref" value="master" type="hidden">
+
+<div class="search-autocomplete-opts hide" data-autocomplete-path="/search/autocomplete" data-autocomplete-project-id="11516" data-autocomplete-project-ref="master"></div>
+</form></div>
+
+</li>
+<li class="visible-sm-inline-block visible-xs-inline-block">
+<a title="Search" aria-label="Search" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://framagit.org/search"><i aria-hidden="true" data-hidden="true" class="fa fa-search"></i>
+</a></li>
+<li>
+<div>
+<a class="btn btn-sign-in btn-success" href="https://framagit.org/users/sign_in?redirect_to_referer=yes">Sign in</a>
+</div>
+</li>
+</ul>
+</div>
+<button class="navbar-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i aria-hidden="true" data-hidden="true" class="fa fa-ellipsis-v"></i>
+</button>
+<div class="js-dropdown-menu-projects">
+<div class="dropdown-menu dropdown-select dropdown-menu-projects">
+<div class="dropdown-title"><span>Go to a project</span><button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button"><i aria-hidden="true" data-hidden="true" class="fa fa-times dropdown-menu-close-icon"></i></button></div>
+<div class="dropdown-input"><input id="" class="dropdown-input-field" placeholder="Search your projects" autocomplete="off" type="search"><i aria-hidden="true" data-hidden="true" class="fa fa-search dropdown-input-search"></i><i role="button" aria-hidden="true" data-hidden="true" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i></div>
+<div class="dropdown-content"></div>
+<div class="dropdown-loading"><i aria-hidden="true" data-hidden="true" class="fa fa-spinner fa-spin"></i></div>
+</div>
+</div>
+
+</div>
+</div>
+</header>
+
+<script>
+  var findFileURL = "/popschool-lens/cours-philippe/find_file/master";
+</script>
+
+<div class="page-with-sidebar">
+<div class="layout-nav">
+<div class="container-fluid">
+<div class="scrolling-tabs-container">
+<div class="fade-left">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-left"></i>
+</div>
+<div class="fade-right">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-right"></i>
+</div>
+<ul class="nav-links scrolling-tabs is-initialized">
+<li class="home"><a title="Project" class="shortcuts-project" href="https://framagit.org/popschool-lens/cours-philippe"><span>
+Project
+</span>
+</a></li><li class="active"><a title="Repository" class="shortcuts-tree" href="https://framagit.org/popschool-lens/cours-philippe/tree/master"><span>
+Repository
+</span>
+</a></li><li class=""><a title="Issues" class="shortcuts-issues" href="https://framagit.org/popschool-lens/cours-philippe/issues"><span>
+Issues
+<span class="badge count issue_counter">0</span>
+</span>
+</a></li><li class=""><a title="Merge Requests" class="shortcuts-merge_requests" href="https://framagit.org/popschool-lens/cours-philippe/merge_requests"><span>
+Merge Requests
+<span class="badge count merge_counter js-merge-counter">0</span>
+</span>
+</a></li><li class=""><a title="Pipelines" class="shortcuts-pipelines" href="https://framagit.org/popschool-lens/cours-philippe/pipelines"><span>
+Pipelines
+</span>
+</a></li><li class=""><a title="Wiki" class="shortcuts-wiki" href="https://framagit.org/popschool-lens/cours-philippe/wikis/home"><span>
+Wiki
+</span>
+</a></li><li class=""><a title="Snippets" class="shortcuts-snippets" href="https://framagit.org/popschool-lens/cours-philippe/snippets"><span>
+Snippets
+</span>
+</a></li><li class=""><a title="Settings" class="shortcuts-tree" href="https://framagit.org/popschool-lens/cours-philippe/settings/members"><span>
+Settings
+</span>
+</a></li><li class="hidden">
+<a title="Activity" class="shortcuts-project-activity" href="https://framagit.org/popschool-lens/cours-philippe/activity"><span>
+Activity
+</span>
+</a></li>
+<li class="hidden">
+<a title="Network" class="shortcuts-network" href="https://framagit.org/popschool-lens/cours-philippe/network/master">Graph
+</a></li>
+<li class="hidden">
+<a title="Charts" class="shortcuts-repository-charts" href="https://framagit.org/popschool-lens/cours-philippe/graphs/master/charts">Charts
+</a></li>
+<li class="hidden">
+<a class="shortcuts-new-issue" href="https://framagit.org/popschool-lens/cours-philippe/issues/new">Create a new issue
+</a></li>
+<li class="hidden">
+<a title="Jobs" class="shortcuts-builds" href="https://framagit.org/popschool-lens/cours-philippe/-/jobs">Jobs
+</a></li>
+<li class="hidden">
+<a title="Commits" class="shortcuts-commits" href="https://framagit.org/popschool-lens/cours-philippe/commits/master">Commits
+</a></li>
+<li class="hidden">
+<a title="Issue Boards" class="shortcuts-issue-boards" href="https://framagit.org/popschool-lens/cours-philippe/boards">Issue Boards</a>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+<div class="scrolling-tabs-container sub-nav-scroll">
+<div class="fade-left">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-left"></i>
+</div>
+<div class="fade-right">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-right"></i>
+</div>
+
+<div class="nav-links sub-nav scrolling-tabs is-initialized">
+<ul class="container-fluid container-limited">
+<li class="active"><a href="https://framagit.org/popschool-lens/cours-philippe/tree/master">Files
+</a></li><li class=""><a href="https://framagit.org/popschool-lens/cours-philippe/commits/master">Commits
+</a></li><li class=""><a href="https://framagit.org/popschool-lens/cours-philippe/branches">Branches
+</a></li><li class=""><a href="https://framagit.org/popschool-lens/cours-philippe/tags">Tags
+</a></li><li class=""><a href="https://framagit.org/popschool-lens/cours-philippe/graphs/master">Contributors
+</a></li><li class=""><a href="https://framagit.org/popschool-lens/cours-philippe/network/master">Graph
+</a></li><li class=""><a href="https://framagit.org/popschool-lens/cours-philippe/compare?from=master&amp;to=master">Compare
+</a></li><li class=""><a href="https://framagit.org/popschool-lens/cours-philippe/graphs/master/charts">Charts
+</a></li></ul>
+</div>
+</div>
+
+<div class="content-wrapper page-with-layout-nav page-with-sub-nav">
+<div class="alert-wrapper">
+
+
+<div class="flash-container flash-container-page">
+</div>
+
+
+</div>
+<div class=" ">
+<div class="content" id="content-body">
+
+
+<div class="container-fluid container-limited">
+<div class="tree-holder" id="tree-holder">
+<div class="nav-block">
+<div class="tree-controls">
+<a class="btn btn-grouped shortcuts-find-file" rel="nofollow" href="https://framagit.org/popschool-lens/cours-philippe/find_file/master"><i aria-hidden="true" data-hidden="true" class="fa fa-search"></i>
+<span>Find file</span>
+</a>
+<div class="btn-group prepend-left-10" role="group"><a class="btn js-blob-blame-link" href="https://framagit.org/popschool-lens/cours-philippe/blame/master/Jimmy/JS1-introduction.md">Blame</a><a class="btn" href="https://framagit.org/popschool-lens/cours-philippe/commits/master/Jimmy/JS1-introduction.md">History</a><a class="btn js-data-file-blob-permalink-url" href="https://framagit.org/popschool-lens/cours-philippe/blob/5a567a6029969b6255e1df500d86393d943ab17e/Jimmy/JS1-introduction.md">Permalink</a></div>
+</div>
+<div class="tree-ref-holder">
+<form class="project-refs-form" action="/popschool-lens/cours-philippe/refs/switch" accept-charset="UTF-8" method="get"><input name="utf8" value="✓" type="hidden"><input name="destination" id="destination" value="blob" type="hidden">
+<input name="path" id="path" value="Jimmy/JS1-introduction.md" type="hidden">
+<div class="dropdown">
+<button class="dropdown-menu-toggle js-project-refs-dropdown" type="button" data-toggle="dropdown" data-selected="master" data-ref="master" data-refs-url="/popschool-lens/cours-philippe/refs" data-field-name="ref" data-submit-form-on-click="true"><span class="dropdown-toggle-text ">master</span><i aria-hidden="true" data-hidden="true" class="fa fa-chevron-down"></i></button>
+<div class="dropdown-menu dropdown-menu-selectable git-revision-dropdown">
+<div class="dropdown-title"><span>Switch branch/tag</span><button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button"><i aria-hidden="true" data-hidden="true" class="fa fa-times dropdown-menu-close-icon"></i></button></div>
+<div class="dropdown-input"><input id="" class="dropdown-input-field" placeholder="Search branches and tags" autocomplete="off" type="search"><i aria-hidden="true" data-hidden="true" class="fa fa-search dropdown-input-search"></i><i role="button" aria-hidden="true" data-hidden="true" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i></div>
+<div class="dropdown-content"></div>
+<div class="dropdown-loading"><i aria-hidden="true" data-hidden="true" class="fa fa-spinner fa-spin"></i></div>
+</div>
+</div>
+</form>
+</div>
+<ul class="breadcrumb repo-breadcrumb">
+<li>
+<a href="https://framagit.org/popschool-lens/cours-philippe/tree/master">cours-philippe
+</a></li>
+<li>
+<a href="https://framagit.org/popschool-lens/cours-philippe/tree/master/Jimmy">Jimmy</a>
+</li>
+<li>
+<a href="https://framagit.org/popschool-lens/cours-philippe/blob/master/Jimmy/JS1-introduction.md"><strong>JS1-introduction.md</strong>
+</a></li>
+</ul>
+</div>
+
+<div class="info-well hidden-xs">
+<div class="well-segment">
+<ul class="blob-commit-info">
+<li class="commit flex-list js-toggle-container" id="commit-5a567a60">
+<div class="avatar-cell hidden-xs">
+<a href="https://framagit.org/philippepary"><img class="avatar has-tooltip s36 hidden-xs" alt="Philippe Pary's avatar" title="Philippe Pary" data-container="body" src="Jimmy_JS1-introduction.md%20%C2%B7%20master%20%C2%B7%20popschool-lens%20_%20cours-philippe%20%C2%B7%20GitLab_fichiers/avatar.png"></a>
+</div>
+<div class="commit-detail">
+<div class="commit-content">
+<a class="commit-row-message item-title" href="https://framagit.org/popschool-lens/cours-philippe/commit/5a567a6029969b6255e1df500d86393d943ab17e">JS1</a>
+<span class="commit-row-message visible-xs-inline">
+·
+5a567a60
+</span>
+<div class="commiter">
+<a class="commit-author-link has-tooltip" title="philippe@scil.coop" href="https://framagit.org/philippepary">Philippe Pary</a> committed <time class="js-timeago js-timeago-render" title="" datetime="2017-06-29T07:43:06Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Jun 29, 2017 7:43am">about 2 hours ago</time>
+</div>
+</div>
+<div class="commit-actions flex-row hidden-xs">
+<a class="commit-sha btn btn-transparent" href="https://framagit.org/popschool-lens/cours-philippe/commit/5a567a6029969b6255e1df500d86393d943ab17e">5a567a60</a>
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-title="Copy commit SHA to clipboard" data-clipboard-text="5a567a6029969b6255e1df500d86393d943ab17e" type="button" title="Copy commit SHA to clipboard" aria-label="Copy commit SHA to clipboard"><i aria-hidden="true" data-hidden="true" class="fa fa-clipboard"></i></button>
+
+</div>
+</div>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class="blob-content-holder" id="blob-content-holder">
+<article class="file-holder">
+<div class="js-file-title file-title-flex-parent">
+<div class="file-header-content">
+<i aria-hidden="true" data-hidden="true" class="fa fa-file-text-o fa-fw"></i>
+<strong class="file-title-name">
+JS1-introduction.md
+</strong>
+<button class="btn btn-clipboard btn-transparent prepend-left-5" data-toggle="tooltip" data-placement="bottom" data-container="body" data-class="btn-clipboard btn-transparent prepend-left-5" data-title="Copy file path to clipboard" data-clipboard-text="{&quot;text&quot;:&quot;Jimmy/JS1-introduction.md&quot;,&quot;gfm&quot;:&quot;`Jimmy/JS1-introduction.md`&quot;}" type="button" title="Copy file path to clipboard" aria-label="Copy file path to clipboard"><i aria-hidden="true" data-hidden="true" class="fa fa-clipboard"></i></button>
+<small>
+6.43 KB
+</small>
+</div>
+
+<div class="file-actions hidden-xs">
+<div class="btn-group js-blob-viewer-switcher" role="group">
+<button aria-label="Display source" class="btn btn-default btn-sm js-blob-viewer-switch-btn has-tooltip" data-container="body" data-viewer="simple" title="Display source">
+<i aria-hidden="true" data-hidden="true" class="fa fa-code"></i>
+</button><button aria-label="Display rendered file" class="btn btn-default btn-sm js-blob-viewer-switch-btn has-tooltip active" data-container="body" data-viewer="rich" title="Display rendered file">
+<i aria-hidden="true" data-hidden="true" class="fa fa-file-text-o"></i>
+</button></div>
+
+<div class="btn-group" role="group"><button class="btn btn btn-sm js-copy-blob-source-btn disabled" data-toggle="tooltip" data-placement="bottom" data-container="body" data-class="btn btn-sm js-copy-blob-source-btn" data-title="Copy source to clipboard" data-clipboard-target=".blob-content[data-blob-id='e0466f5293f465344bb744d5f376abdac280bd96']" type="button" title="" aria-label="Copy source to clipboard" data-original-title="Switch to the source to copy it to the clipboard"><i aria-hidden="true" data-hidden="true" class="fa fa-clipboard"></i></button><a class="btn btn-sm has-tooltip" target="_blank" rel="noopener noreferrer" title="Open raw" data-container="body" href="https://framagit.org/popschool-lens/cours-philippe/raw/master/Jimmy/JS1-introduction.md"><i aria-hidden="true" data-hidden="true" class="fa fa-file-code-o"></i></a></div>
+<div class="btn-group" role="group"><a class="btn js-edit-blob  btn-sm" href="https://framagit.org/popschool-lens/cours-philippe/edit/master/Jimmy/JS1-introduction.md">Edit</a></div>
+</div>
+</div>
+
+
+<div class="blob-viewer hidden" data-type="simple" data-url="/popschool-lens/cours-philippe/blob/master/Jimmy/JS1-introduction.md?format=json&amp;viewer=simple">
+<div class="text-center prepend-top-default append-bottom-default">
+<i aria-hidden="true" aria-label="Loading content…" class="fa fa-spinner fa-spin fa-2x"></i>
+</div>
+
+</div>
+
+<div class="blob-viewer" data-type="rich" data-url="/popschool-lens/cours-philippe/blob/master/Jimmy/JS1-introduction.md?format=json&amp;viewer=rich" data-loading="true" data-loaded="true"><div class="blob-viewer" data-type="rich">
+<div class="file-content wiki">
+<h1 dir="auto">
+<a id="user-content-introduction-à-javascript" class="anchor" href="#introduction-%C3%A0-javascript" aria-hidden="true"></a>Introduction à JavaScript</h1>
+
+<p dir="auto">Philippe Pary, 2017</p>
+
+<p dir="auto">Pour chaque exercice, pensez à utiliser git, évidemment</p>
+
+<h2 dir="auto">
+<a id="user-content-exercice-1" class="anchor" href="#exercice-1" aria-hidden="true"></a>Exercice 1</h2>
+
+<p dir="auto">À l’aide d’un bouton, changez la couleur de fond de la page à l’aide d’un attribut <a href="https://developer.mozilla.org/docs/Web/API/GlobalEventHandlers/onclick" rel="nofollow noreferrer noopener" target="_blank">onclick=</a> qui vient modifier la valeur <em>document.body.style.backgroundColor</em></p>
+
+<h2 dir="auto">
+<a id="user-content-exercice-2" class="anchor" href="#exercice-2" aria-hidden="true"></a>Exercice 2</h2>
+
+<ol dir="auto">
+<li>Affichez un formulaire de saisie JavaScript (<a href="https://developer.mozilla.org/docs/Web/API/Window/prompt" rel="nofollow noreferrer noopener" target="_blank">prompt()</a>) demandant un nom</li>
+<li>Affichez le résultat via une boîte d’console.loge (<a href="https://developer.mozilla.org/docs/Web/API/Window/alert" rel="nofollow noreferrer noopener" target="_blank">alert()</a>) sous forme «&nbsp;*Hi, my name is … *&nbsp;»</li>
+</ol>
+
+<h2 dir="auto">
+<a id="user-content-exercice-3" class="anchor" href="#exercice-3" aria-hidden="true"></a>Exercice 3</h2>
+
+<p dir="auto">Amélioration de l’exercice précédent&nbsp;:  </p>
+
+<ol dir="auto">
+<li>Créez un champ <code>&lt;input&gt;</code> avec un <code>id=myName</code> et un <code>&lt;button&gt;</code>
+</li>
+<li>Affichez le contenu du champ via le bouton avec un attribut, <em>onclick</em> (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/log" rel="nofollow noreferrer noopener" target="_blank">console.log</a>)</li>
+</ol>
+
+<p dir="auto">tip: le paramètre de console.log est <code>document.getElementById("myName").value</code></p>
+
+<h2 dir="auto">
+<a id="user-content-exercice-4" class="anchor" href="#exercice-4" aria-hidden="true"></a>Exercice 4</h2>
+
+<ol dir="auto">
+<li>Créez un fichier HTML</li>
+<li>Creez un fichier CSS qui dit que les div sont une fois rouges, une fois bleues</li>
+<li>Mettez un bouton que quand on clique, ça ajoute une div à la page !</li>
+</ol>
+
+<p dir="auto">tip: div:nth-child(odd) { background: red; } div:nth-child(even) { background: blue; }</p>
+
+<p dir="auto">tip: document.body.appendChild(document.createElement('div'));</p>
+
+<h2 dir="auto">
+<a id="user-content-un-peu-de-théorie-" class="anchor" href="#un-peu-de-th%C3%A9orie-" aria-hidden="true"></a>Un peu de théorie …</h2>
+
+<h3 dir="auto">
+<a id="user-content-contexte" class="anchor" href="#contexte" aria-hidden="true"></a>Contexte</h3>
+
+<p dir="auto">Première spécification JS en 1995 (rappel: HTML et WWW en 1991, CSS en 1994-95)<br>
+Comme CSS, lié au navigateur majoritaire de l’époque, NetScape, devenu Firefox.</p>
+
+<h3 dir="auto">
+<a id="user-content-principe" class="anchor" href="#principe" aria-hidden="true"></a>Principe</h3>
+
+<p dir="auto">JavaScript est un langage de script (comme PHP) : il n’est
+ pas compilé. Les fichiers Javascript sont en texte plat et sont 
+interprêtés par le moteur JavaScript du navigateur web (SpiderMonkey 
+pour Firefox, V8 pour Chrome etc.)<br>
+Comme pour le code CSS, le code JavaScript peut être embarqué dans la 
+page HTML via les balises &lt;script&gt;&lt;/script&gt; ou via des 
+fichiers spécifiques via la balise <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/script" rel="nofollow noreferrer noopener" target="_blank">&lt;script&gt;</a>. Par convention, les fichiers ont pour extension <em>.js</em></p>
+
+<p dir="auto"><strong>Tout est exécuté sur la machine de l’utilisateur</strong></p>
+
+<p dir="auto">Conséquence, vous ne pouvez pas avoir confiance dans un 
+résultat calculé en JavaScript car l’utilisateur peut voir les 
+variables, modifier le code etc.<br>
+Par exemple, si vous développez un jeu de pendu en pur JavaScript, 
+l’utilisateur peut connaître le mot tiré au sort ou encore truquer son 
+compteur de nombre d’essais via la console de débogage.</p>
+
+<p dir="auto">Si des éléments nécessitent d’être certains, vous devez les faire côté serveur. En PHP par exemple.</p>
+
+<p dir="auto">En JavaScript vous pouvez faire les actions sans 
+gravité&nbsp;: effets visuels, amélioration des formulaires, mise à jour
+ automatique de la page, appels à des API etc.<br>
+JavaScript s’appuie massivement sur <a href="https://developer.mozilla.org/docs/Web/API/Document_Object_Model" rel="nofollow noreferrer noopener" target="_blank">DOM</a> pour s’intégrer dans une page web.</p>
+
+<h3 dir="auto">
+<a id="user-content-dom" class="anchor" href="#dom" aria-hidden="true"></a>DOM&nbsp;?</h3>
+
+<p dir="auto"><strong>Document object model</strong>, la structure d’une
+ page web. C’est une interface de programmation qui propose une 
+structure des documents et une méthode pour accéder aux différentes 
+valeurs.  </p>
+
+<p dir="auto">On peut accéder aux élements de la page web par 3 billets : par leur type (<em>&lt;div&gt;</em>, <em>&lt;a&gt;</em> …), par classe (valeur de l’attribut <em>class=</em>) ou par identifiant (valeur dde l’atttribut <em>id=</em>)</p>
+
+<p dir="auto">En clair vous avez des valeurs (document.style pour 
+accéder au style de la page) et des fonctions 
+(document.getElementByClass pour trouver tous les éléments ayant une 
+classe donnée)</p>
+
+<h4 dir="auto">
+<a id="user-content-sélecteur-par-id" class="anchor" href="#s%C3%A9lecteur-par-id" aria-hidden="true"></a>Sélecteur par id</h4>
+
+<p dir="auto">Celui qu’on utilise tout le temps …</p>
+
+<p dir="auto"><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/getElementById" rel="nofollow noreferrer noopener" target="_blank">https://developer.mozilla.org/fr/docs/Web/API/Document/getElementById</a></p>
+
+<p dir="auto">Renvoie un seul élément</p>
+
+<h4 dir="auto">
+<a id="user-content-sélecteur-par-type-délément" class="anchor" href="#s%C3%A9lecteur-par-type-d%C3%A9l%C3%A9ment" aria-hidden="true"></a>Sélecteur par type d’élément</h4>
+
+<p dir="auto"><a href="https://developer.mozilla.org/fr/docs/Web/API/document/getElementsByTagName" rel="nofollow noreferrer noopener" target="_blank">https://developer.mozilla.org/fr/docs/Web/API/document/getElementsByTagName</a></p>
+
+<p dir="auto">Renvoie un tableau d’éléments (pour le moment, on va éviter)</p>
+
+<h4 dir="auto">
+<a id="user-content-sélecteur-par-classe" class="anchor" href="#s%C3%A9lecteur-par-classe" aria-hidden="true"></a>Sélecteur par classe</h4>
+
+<p dir="auto"><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/getElementsByClassName" rel="nofollow noreferrer noopener" target="_blank">https://developer.mozilla.org/fr/docs/Web/API/Document/getElementsByClassName</a></p>
+
+<p dir="auto">Renvoie un tableau d’éléments (pour le moment, on va éviter)</p>
+
+<h4 dir="auto">
+<a id="user-content-sélecteur-par-mot-clef-this" class="anchor" href="#s%C3%A9lecteur-par-mot-clef-this" aria-hidden="true"></a>Sélecteur par mot-clef <code>this</code>
+</h4>
+
+<p dir="auto"><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/L_op%C3%A9rateur_this" rel="nofollow noreferrer noopener" target="_blank">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/L_op%C3%A9rateur_this</a></p>
+
+<p dir="auto">Renvoie l’élément dans lequel on se trouve</p>
+
+<h2 dir="auto">
+<a id="user-content-exercice-4-1" class="anchor" href="#exercice-4-1" aria-hidden="true"></a>Exercice 4</h2>
+
+<p dir="auto">Refaites l’exercice 3, mais en mieux !</p>
+
+<ol dir="auto">
+<li>Virez ce bouton !</li>
+<li>Utilisez l’attribut <em><a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange" rel="nofollow noreferrer noopener" target="_blank">onchange</a></em> sur la div</li>
+<li>Utilisez <code>this.value</code> comme paramètre pour le <code>console.log()</code>
+</li>
+</ol>
+
+<h2 dir="auto">
+<a id="user-content-exercice-5" class="anchor" href="#exercice-5" aria-hidden="true"></a>Exercice 5</h2>
+
+<p dir="auto">Allez, on rigole pour de bon …</p>
+
+<ol dir="auto">
+<li>Créez un grand nombre de <code>&lt;div&gt;</code>
+</li>
+<li>Sur chacune mettez un `onClick="this.style.background=" et mettez une couleur au hasard après le <em>=</em>
+</li>
+<li>Amusez-vous à cliquer</li>
+<li>Améliorez tout ça en utilisant soit les <code>float</code> soit le <code>grid</code>, bref, jouez avec CSS</li>
+</ol>
+
+<h3 dir="auto">
+<a id="user-content-théorie-de-veau" class="anchor" href="#th%C3%A9orie-de-veau" aria-hidden="true"></a>Théorie (de veau)</h3>
+
+<p dir="auto">JS pour un front-dev, c’est drôle pour modifier en live le code HTML et CSS !</p>
+
+<p dir="auto">Alors on va voir un peu comment s’y prendre.</p>
+
+<h4 dir="auto">
+<a id="user-content-accéder-aux-valeurs-dun-éléments" class="anchor" href="#acc%C3%A9der-aux-valeurs-dun-%C3%A9l%C3%A9ments" aria-hidden="true"></a>Accéder aux valeurs d’un éléments</h4>
+
+<ul dir="auto">
+<li>
+<code>element.css</code> : les propriétés CSS de l’élément</li>
+<li>
+<code>element.style</code> : la valeur de l’attribut <code>style</code>. Attention, <code>style</code> et <code>css</code> sont souvent source de confusion !</li>
+<li>
+<code>element.value</code> : la valeur des éléments de formulaires (<code>input</code> etc.)</li>
+<li>
+<code>element.innerHTML</code> : tout ce qui est contenu entre deux balises, y compris les autres balises HTML</li>
+<li>
+<code>element.firstChild</code>, <code>element.lastChild</code>, <code>element.childNodes</code>: premier, dernier et liste de tous les éléments enfants d’un élément.</li>
+<li>
+<code>element.parentNode</code> : div, je suis ton père</li>
+<li>
+<code>element.textContent</code> : le texte contenu dans l’élément ainsi que dans tous ses enfants, débarassé de toute balise HTML</li>
+</ul>
+
+<p dir="auto">Avec ça, on a de quoi faire, non ?</p>
+
+<h4 dir="auto">
+<a id="user-content-créer-des-éléments-à-la-volée" class="anchor" href="#cr%C3%A9er-des-%C3%A9l%C3%A9ments-%C3%A0-la-vol%C3%A9e" aria-hidden="true"></a>Créer des éléments à la volée</h4>
+
+<p dir="auto">On peut créer les éléments à la volée</p>
+
+<pre class="code highlight js-syntax-highlight plaintext white" v-pre="true" lang="plaintext"><code><span id="LC1" class="line" lang="plaintext">newDiv = document.createElement("div");</span>
+<span id="LC2" class="line" lang="plaintext">newDiv.id = "green";</span></code></pre>
+<p dir="auto">On peut les ajouter à un autre éléments</p>
+
+<pre class="code highlight js-syntax-highlight plaintext white" v-pre="true" lang="plaintext"><code><span id="LC1" class="line" lang="plaintext">document.getElementById("myDiv").appendChild(newDiv);</span></code></pre>
+<h3 dir="auto">
+<a id="user-content-exercice-6" class="anchor" href="#exercice-6" aria-hidden="true"></a>Exercice 6</h3>
+
+<ol dir="auto">
+<li>HTML/CSS/JS</li>
+<li>Ajoutez un bouton et une div avec pour id <code>myDiv</code>
+</li>
+<li>Créez un CSS avec des propriétés pour les div paires (<code>div:nth-child(odd)</code>) et impaires (<code>div:nth-child(even)</code>). N’oubliez pas de leur donner une hauteur et largeur</li>
+<li>onClick ajoute une nouvelle div à <code>myDiv</code>
+</li>
+<li>&lt;3</li>
+</ol>
+
+<h3 dir="auto">
+<a id="user-content-tp" class="anchor" href="#tp" aria-hidden="true"></a>TP</h3>
+
+<p dir="auto">Faites n’importe quoi avec ce qu’on a vu en JS et avec 
+tout ce qui vous traverse l’esprit ou n’importe quoi que vous trouvez 
+sur Internet. C’est un temps prévu pour le nawak</p>
+</div>
+
+</div>
+</div>
+
+
+</article>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="device-xs visible-xs"></div><div class="device-sm visible-sm"></div><div class="device-md visible-md"></div><div class="device-lg visible-lg"></div></body></html>
